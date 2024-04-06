@@ -24,7 +24,7 @@ class Program
 
         if (oscillateoption == 'Y')
         {
-            oscillateoutput(fanpoweroutput);
+            oscillateoutput(basefanpower, fanspeed);
         }
         else
         {
@@ -32,16 +32,30 @@ class Program
         }
     }
 
-    static void oscillateoutput(int fanpoweroutput)
+    static void oscillateoutput(int basefanpower, int fanspeed)
     {
-        for (int i = 1; i <= fanpoweroutput; i++)
-        {
-            Console.WriteLine(new string('~', i));
-        }
-        for (int i = fanpoweroutput ; i >= 1; i--)
-        {
-            Console.WriteLine(new string('~', i));
-        }
+       for (int i = 1; i <= basefanpower; i++)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    for (int x = 1; x <= fanspeed; x++)
+                    {
+                        Console.Write("~");
+                    }
+                }
+        Console.WriteLine();
+            }
+         for (int i = basefanpower; i >= 1; i--)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    for (int x = 1; x <= fanspeed; x++)
+                    {
+                        Console.Write("~");
+                    }
+                }
+        Console.WriteLine();
+            }
     }
 
     static void steadyoutput(int fanpoweroutput)
